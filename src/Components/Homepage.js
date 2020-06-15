@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { isStyledComponent } from "styled-components";
+import Api from "../API/Accounts";
 
 const Homepage = () => {
+  const [State] = Api("https://panorbit.in/api/users.json");
   const Styleddiv = styled.div`
    box-shadow: 5px 5px rgba(0, 98, 90, 0.4),
               10px 10px rgba(0, 98, 90, 0.3),
@@ -22,10 +24,10 @@ const Homepage = () => {
   position:fixed;
     text-align:center;
     min-width: 30vw;
-    max-height: 200px;
+    max-height: 500px;
     overflow: scroll;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -49,16 +51,9 @@ const Homepage = () => {
       <Styleddiv>
         <h2>Select an Account</h2>
         <div>
-          <a href="#" className={"active"}>
-            HOME
-          </a>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 4</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 4</a>
+          {State.map((item) => (
+            <a href="#">{item.name}</a>
+          ))}
         </div>
       </Styleddiv>
     </React.Fragment>
