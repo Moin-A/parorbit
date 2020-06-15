@@ -76,18 +76,20 @@ span {
 
   return (
     <React.Fragment>
-      <Styleddiv>
-        <h2>Select an Account</h2>
-        <div style={{ padding: 0 }}>
-          {State.map((item) => (
-            <Link to={"/details"}>
-              {}
-              <img src={item.profilepicture} alt="Girl in a jacket"></img>
-              <span>{item.name}</span>
-            </Link>
-          ))}
-        </div>
-      </Styleddiv>
+      <div className={"container"}>
+        <Styleddiv>
+          <h2>Select an Account</h2>
+          <div style={{ padding: 0 }}>
+            {State.map((item) => (
+              <Link to={"/details"}>
+                {}
+                <img src={item.profilepicture} alt="Girl in a jacket"></img>
+                <span>{item.name}</span>
+              </Link>
+            ))}
+          </div>
+        </Styleddiv>
+      </div>
     </React.Fragment>
   );
 };
