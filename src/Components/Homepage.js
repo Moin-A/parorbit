@@ -1,22 +1,30 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import styled, { isStyledComponent } from "styled-components";
-import Api from "../API/Accounts";
+import NavLink from "./NavLink";
 import { Link } from "@reach/router";
 
-const Homepage = () => {
-  const [State] = Api("https://panorbit.in/api/users.json");
+const Homepage = (props) => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("https://panorbit.in/api/users.json")
+      .then((response) => response.json())
+      .then((data) => setUsers(data.users))
+      .catch((error) => console.log(error.message));
+  }, []);
+
   const Styleddiv = styled.div`
    box-shadow: 5px 5px rgba(0, 98, 90, 0.4),
               10px 10px rgba(0, 98, 90, 0.3),
               15px 15px rgba(0, 98, 90, 0.2),
               20px 20px rgba(0, 98, 90, 0.1),
               25px 25px rgba(0, 98, 90, 0.05);
-  border-radius:1rem;
+  border-radius:1rem; 
   & img{
     display:flex;
     border-radius: 50%;
     width:5rem;
-    height:5rem;
+    height:5rem;  
   }
 span {
   flex-grow:2;
@@ -75,22 +83,19 @@ span {
   `;
 
   return (
-    <React.Fragment>
-      <div className={"container"}>
-        <Styleddiv>
-          <h2>Select an Account</h2>
-          <div style={{ padding: 0 }}>
-            {State.map((item) => (
-              <Link to={"/details"}>
-                {}
-                <img src={item.profilepicture} alt="Girl in a jacket"></img>
-                <span>{item.name}</span>
-              </Link>
-            ))}
-          </div>
-        </Styleddiv>
-      </div>
-    </React.Fragment>
+    <div className={"container"}>
+      <Styleddiv>
+        <h2>Select an Account</h2>
+        <div style={{ padding: 0 }}>
+          {Object.values(users).map((item) => (
+            <Link to={`details/${item.name}`}>
+              <img src={item.profilepicture} alt="Girl in a jacket"></img>
+              <span>{item.name}</span>
+            </Link>
+          ))}
+        </div>
+      </Styleddiv>
+    </div>
   );
 };
 

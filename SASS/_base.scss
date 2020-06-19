@@ -16,7 +16,7 @@ $bp-smallest: 531;
 }
 
 html {
-  height: 100%;
+  
   box-sizing: border-box;
   font-size: 62.5%; 
   @media only screen and(max-width:$bp-largest) {
@@ -25,6 +25,7 @@ html {
   @media only screen and(max-width:$bp-largest) {
     font-size: 30%;
   }
+ 
 }
 
 body {
@@ -37,7 +38,7 @@ body {
 }
 
 .container {
-  width: 100%;
+  min-width: 100%;
   height: auto;
   position: relative;
 width: 100%;
@@ -64,4 +65,14 @@ position: relative;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   clip-path: polygon(0 60%, 8% 67%, 14% 72%, 22% 74%, 30% 75%, 39% 72%, 44% 66%, 50% 60%, 55% 54%, 61% 51%, 71% 50%, 79% 51%, 85% 53%, 90% 56%, 97% 58%, 100% 58%, 100% 0%, 0% 0%);
   }
+}
+
+
+.Maps {
+
+div {
+  div{
+    height: 30%;
+  }
+}
 }

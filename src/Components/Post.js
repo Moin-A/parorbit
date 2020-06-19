@@ -40,9 +40,8 @@ const Details = (props) => {
   return (
     <Context.Provider value={{ page, data }}>
       <Styleddiv>
-        <Header />
-        <Sidebar />
         <Chatdropup />
+        <Header />
         {props.children}
       </Styleddiv>
     </Context.Provider>
