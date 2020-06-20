@@ -46,6 +46,13 @@ height: 70vh;
 position: relative;
 
 
+.MuiAppBar-positionFixed {
+  position: sticky;
+  grid-column: center-start/center-end;
+  display: grid;
+}
+
+
 
   &:after {
     content: '';
@@ -91,6 +98,4 @@ div {
 
 //drawer
 
-.MuiList-root{
-  margin:  auto;
-}
+

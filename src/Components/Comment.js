@@ -72,7 +72,7 @@ export default function RecipeReviewCard(props) {
 
   const Styleddiv = styled.div`
     grid-column: col-start / col-end 3;
-    background-color: yellow;
+
     transition: all 0.5s;
 
     margin-bottom: 1rem;

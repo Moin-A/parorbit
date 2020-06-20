@@ -18,7 +18,7 @@ const Details = (props) => {
   const [page, setpage] = useState("Profile");
 
   const Styleddiv = styled.div`
-    background-color: blue;
+    background-color: #ffffff;
     display: grid;
     grid-template-rows: 13vh 120vh 10vh;
     grid-gap: 2rem;
