@@ -21,19 +21,30 @@ import styled, { isStyledComponent } from "styled-components";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      maxWidth: "100%",
+      display: "block",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      padding: "1rem",
+      borderRadius: "2rem ",
+      fontSize: "4rem",
+      paddingBlock: "2rem",
     },
     media: {
       height: 0,
-      paddingTop: "56.25%", // 16:9
+      paddingTop: "43.25%", // 16:9
+      fontsize: "3rem",
+      borderRadius: "1rem",
+      margin: "1rem",
     },
     expand: {
       transform: "rotate(0deg)",
       marginLeft: "auto",
-      transition: "0.5s",
+      transition: "all 1s",
     },
     expandOpen: {
       transform: "rotate(180deg)",
+      transition: "all 1s",
     },
     avatar: {
       backgroundColor: red[500],
@@ -41,8 +52,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function RecipeReviewCard() {
-  const { page, data } = useContext(Context);
+export default function RecipeReviewCard(props) {
+  const { page, data, image } = useContext(Context);
+  const [id] = useState(props.id);
   const [Data, setdata] = useState([
     {
       profilepicture: "https://panorb",
@@ -50,17 +62,6 @@ export default function RecipeReviewCard() {
       address: { street: "xyz" },
     },
   ]);
-  useEffect(() => {
-    fetch("https://panorbit.in/api/posts.json")
-      .then((response) => response.json())
-      .then((dataa) =>
-        // setdata(Object.values(data.users).filter((x) => x.userId == data[0].id))
-        {
-          debugger;
-        }
-      )
-      .catch((error) => console.log(error.message));
-  }, []);
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -73,44 +74,40 @@ export default function RecipeReviewCard() {
     grid-column: col-start / col-end 3;
     background-color: yellow;
     transition: all 0.5s;
-    font-size: 2rem;
+
+    margin-bottom: 1rem;
+
+    .MuiTypography-body2 {
+      font-size: 1.59rem;
+    }
   `;
+
+  useEffect(() => {
+    const elements = document.querySelectorAll("div:not([class]):not([id])");
+    Array.from(elements, (item) => item.classList.add("retroClass"));
+  }, []);
+
   return (
     <Styleddiv>
       <Card className={classes.root}>
         <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              R
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
+          avatar={<Avatar alt="Remy Sharp" src={image[0].profilepicture} />}
+          action={<IconButton aria-label="settings"></IconButton>}
+          title={image[0].name}
+          subheader={props.data.time}
         />
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/paella.jpg"
+          image={props.data.image}
           title="Paella dish"
+          classes="media_img"
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
+            {props.data.body}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,

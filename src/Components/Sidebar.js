@@ -4,23 +4,39 @@ import NavLink from "./NavLink";
 import { Link, Router, Root } from "@reach/router";
 import Context from "./Context";
 import Post from "./Post";
+import Child_Sidebar from "./Child_Sidebar";
 
 const Sidebar = () => {
   const { data, page } = useContext(Context);
   const Styleddiv = styled.div`
-    display: flex;
+    /* display: flex;
     max-height: 70%;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     margin: 2rem 1rem;
-    border-radius: 4rem;
-    background-color: red;
+    border-radius: 4rem; */
+    /* background-color: red; */
     grid-column: sidebar-start / sidebar-end;
     grid-row: 1 / -1;
 
-    display: flex;
-    justify-content: center;
+    .MuiList-root {
+      margin: auto 3rem;
+      justify-content: center;
+      align-items: center;
+      div {
+        span {
+          font-size: 1.5rem;
+          color: #a4a6e4;
+          :hover {
+            color: white;
+          }
+        }
+      }
+    }
+
+    /* display: flex;
+    justify-content: center; */
 
     @media only screen and (max-width: 700px) {
       grid-column: 1 / -1;
@@ -28,7 +44,7 @@ const Sidebar = () => {
       justify-content: flex-end;
       align-items: center;
     }
-    label {
+    /* label {
       :checked {
         font-size: 2rem;
       }
@@ -53,12 +69,12 @@ const Sidebar = () => {
       &:after {
         cursor: pointer;
       }
-    }
+    } */
   `;
   return (
     <Styleddiv>
-      <label checked="true">
-        <Link to={`post`}>Profile</Link>
+      {/* <label checked="true">
+        <Link to={`post/${data[0].id}`}>Post</Link>
       </label>
       <label>
         <NavLink to="#">Profile</NavLink>
@@ -68,7 +84,9 @@ const Sidebar = () => {
       </label>
       <label>
         <NavLink to="#">Profile</NavLink>
-      </label>
+      </label> */}
+
+      <Child_Sidebar data={data} />
     </Styleddiv>
   );
 };

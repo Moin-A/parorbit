@@ -43,3 +43,12 @@ body {
 
 .Maps div div {
   height: 30%; }
+
+.retroClass {
+  grid-column: col-start / col-end 4; }
+
+.makeStyles-media-2 {
+  height: 0; }
+
+.MuiList-root {
+  margin: auto; }

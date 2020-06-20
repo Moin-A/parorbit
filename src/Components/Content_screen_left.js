@@ -11,6 +11,10 @@ const Content_screen_right = (props) => {
   ]);
 
   useEffect(() => {
+    const elements = document.querySelectorAll("div:not([class]):not([id])");
+    Array.from(elements, (item) => item.classList.add("retroClass"));
+  }, []);
+  useEffect(() => {
     setimage(data);
   }, [data]);
   const Styleddiv = styled.div`

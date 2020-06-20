@@ -20,7 +20,7 @@ const Details = (props) => {
   const Styleddiv = styled.div`
     background-color: blue;
     display: grid;
-    grid-template-rows: 13vh min-content 10vh;
+    grid-template-rows: 13vh 120vh 10vh;
     grid-gap: 2rem;
     grid-template-columns:
       [sidebar-start] 25rem [sidebar-end full-start] minmax(6rem, 1fr)
@@ -38,7 +38,7 @@ const Details = (props) => {
   }, []);
 
   return (
-    <Context.Provider value={{ page, data }}>
+    <Context.Provider value={{ page, data, props }}>
       <Styleddiv>
         <Header />
         <Sidebar />

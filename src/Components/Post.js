@@ -1,13 +1,10 @@
 import React, { Component, useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
+
 import styled, { isStyledComponent } from "styled-components";
-import Chatdropup from "./Chatdropup";
-import Header from "./Header";
-import Content_screen_left from "./Content_screen_left";
-import Content_screen_right from "./Content_screen_right";
+import Comment from "./Comment";
 import Context from "./Context";
 import { Link, Router } from "@reach/router";
-const Details = (props) => {
+const Post = (props) => {
   const [data, setdata] = useState([
     {
       profilepicture: "https://panorb",
@@ -15,7 +12,27 @@ const Details = (props) => {
       address: { street: "xyz" },
     },
   ]);
+
   const [page, setpage] = useState("Profile");
+  const [image, setimage] = useState("Profile");
+
+  useEffect(() => {
+    fetch("https://panorbit.in/api/posts.json")
+      .then((response) => response.json())
+      .then((data) =>
+        setdata(Object.values(data)[0].filter((x) => x.userId == props.id))
+      )
+      .catch((error) => console.log(error.message));
+  }, []);
+
+  useEffect(() => {
+    fetch("https://panorbit.in/api/users.json")
+      .then((response) => response.json())
+      .then((data) =>
+        setimage(Object.values(data.users).filter((x) => x.id == props.id))
+      )
+      .catch((error) => console.log(error.message));
+  }, []);
 
   const Styleddiv = styled.div`
     background-color: blue;
@@ -28,24 +45,13 @@ const Details = (props) => {
       [center-end] minmax(6rem, 1fr) [full-end];
   `;
 
-  useEffect(() => {
-    fetch("https://panorbit.in/api/users.json")
-      .then((response) => response.json())
-      .then((data) =>
-        setdata(Object.values(data.users).filter((x) => x.name == props.id))
-      )
-      .catch((error) => console.log(error.message));
-  }, []);
-
   return (
-    <Context.Provider value={{ page, data }}>
-      <Styleddiv>
-        <Chatdropup />
-        <Header />
-        {props.children}
-      </Styleddiv>
+    <Context.Provider value={{ page, data, image }}>
+      {Object.values(data).map((item) => (
+        <Comment data={item} />
+      ))}
     </Context.Provider>
   );
 };
 
-export default Details;
+export default Post;

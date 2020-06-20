@@ -3,7 +3,7 @@ import styled, { isStyledComponent } from "styled-components";
 import Context from "./Context";
 
 const Header = () => {
-  const { page, data } = useContext(Context);
+  const { page, data, props } = useContext(Context);
   const [image, setimage] = useState([
     {
       profilepicture: "https://panorb",
@@ -35,10 +35,16 @@ const Header = () => {
       image-rendering: pixelated;
     }
   `;
-  debugger;
+
   return (
     <Styledheader>
-      <span>{page}</span>
+      <span>
+        {
+          props.location.pathname.split("/")[
+            props.location.pathname.split("/").length - 2
+          ]
+        }
+      </span>
       <div>
         <img src={image[0].profilepicture} alt="profile"></img>
         <span>{image[0].name}</span>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Comment from "./Components/Comment";
 import Homepage from "./Components/Homepage";
@@ -13,19 +13,19 @@ import Chatdropup from "./Components/Chatdropup";
 import Content_screen_left from "./Components/Content_screen_left";
 import Content_screen_right from "./Components/Content_screen_right";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Router>
         <Homepage path="/" />
-        <Details path="details/:id">
+        <Details path="profile/:id">
           <Content_screen_left path="/" />
           <Content_screen_right path="/" />
-          <Comment path="post" wrapperProps={{ className: "my-class" }} />
+          <Post path="post/:id" wrapperProps={{ className: "my-class" }} />
         </Details>
       </Router>
     </div>
   );
-}
+};
 
 export default App;

@@ -88,7 +88,7 @@ span {
         <h2>Select an Account</h2>
         <div style={{ padding: 0 }}>
           {Object.values(users).map((item) => (
-            <Link to={`details/${item.name}`}>
+            <Link to={`profile/${item.name}`}>
               <img src={item.profilepicture} alt="Girl in a jacket"></img>
               <span>{item.name}</span>
             </Link>
