@@ -25,6 +25,11 @@ const Header = () => {
     align-items: center;
 
     flex-grow: 1;
+    span {
+      box-sizing: border-box;
+      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      font-weight: 500;
+    }
     img {
       margin-right: 1rem;
       width: 4rem;
@@ -35,7 +40,7 @@ const Header = () => {
       image-rendering: pixelated;
     }
   `;
-  debugger;
+
   return (
     <Styledheader>
       <span>{page}</span>

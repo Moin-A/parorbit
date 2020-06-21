@@ -2,7 +2,7 @@
 // FONT VARIABLES
 
 $font-primary: "Nunito", sans-serif;
-$font-display: "Josefin Sans", sans-serif;
+$font-display: "Roboto", "Helvetica", "Arial", sans-serif;
 $color-grey-dark-2: rgb(26, 18, 19);
 $color-grey-dark-3: rgba(59, 10, 10, 0.445);
 $color-grey-light-1: rgba(233, 219, 219, 0);
@@ -29,11 +29,16 @@ html {
 }
 
 body {
-  font-family: $font-display;
+
   font-weight: 300;
-  line-height: 1.6;
+
   font-size: 2rem;
   margin: 0;
+
+    font-family: $font-primary;
+    font-weight: 400;
+    line-height: 1.334;
+    letter-spacing: 0em;
 
 }
 
@@ -94,6 +99,16 @@ div {
   height:0
 }
 
+
+
+.retroClass_Details {
+  grid-column: col-start / col-end 2;
+
+}
+
+.MuiPaper-elevation1 {
+  box-shadow: none;
+}
 
 
 //drawer

@@ -3,6 +3,7 @@ import Comment from "./Comment";
 import { Link, Router } from "@reach/router";
 import styled, { isStyledComponent } from "styled-components";
 import Context from "./Context";
+import Child_leftContent from "./Child_leftContentCard";
 
 const Content_screen_right = (props) => {
   const { page, data } = useContext(Context);
@@ -12,7 +13,7 @@ const Content_screen_right = (props) => {
 
   useEffect(() => {
     const elements = document.querySelectorAll("div:not([class]):not([id])");
-    Array.from(elements, (item) => item.classList.add("retroClass"));
+    Array.from(elements, (item) => item.classList.add("retroClass_Details"));
   }, []);
   useEffect(() => {
     setimage(data);
@@ -21,11 +22,12 @@ const Content_screen_right = (props) => {
     grid-column: col-start / col-end 3;
     background-color: yellow;
     :first-child {
-      background-color: red;
+      border-right: 1px solid #cccccc;
     }
     div {
-      display: grid;
       justify-content: center;
+      box-shadow: none;
+      padding: 0;
     }
     img {
       margin: 2rem auto;
@@ -41,42 +43,7 @@ const Content_screen_right = (props) => {
     }
   `;
 
-  return (
-    <Styleddiv>
-      <div>
-        <div>
-          <img src={image[0].profilepicture} alt="profile"></img>
-          <h2 className="center">{image[0].name}</h2>
-        </div>
-        <div style={{ borderBottom: "3px solid red" }}>
-          <h2>
-            Username: <span>{image[0].username}</span>
-          </h2>
-          <h2>
-            email: <span>{image[0].email}</span>
-          </h2>
-          <h2>
-            Phone <span>{image[0].phone}</span>
-          </h2>
-          <h2>
-            Website: <span>{image[0].website}</span>
-          </h2>
-        </div>
-        <div>
-          <h2>COMPANY</h2>
-        </div>
-        <h2>
-          Website: <span>{image[0].company.name}</span>
-        </h2>
-        <h2>
-          catchphrase: <span>{image[0].company.catchPhrase}</span>
-        </h2>
-        <h2>
-          bs: <span>{image[0].company.bs}</span>
-        </h2>
-      </div>
-    </Styleddiv>
-  );
+  return <Child_leftContent data={data} />;
 };
 
 export default Content_screen_right;
