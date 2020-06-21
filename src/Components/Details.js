@@ -22,6 +22,7 @@ const Details = (props) => {
     display: grid;
     grid-template-rows: 13vh 120vh 10vh;
     grid-gap: 2rem;
+    position: relative;
     grid-template-columns:
       [sidebar-start] 25rem [sidebar-end full-start] minmax(6rem, 1fr)
       [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
@@ -36,7 +37,7 @@ const Details = (props) => {
       )
       .catch((error) => console.log(error.message));
   }, []);
-
+  debugger;
   return (
     <Context.Provider value={{ page, data, props }}>
       <Styleddiv>

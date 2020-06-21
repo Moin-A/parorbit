@@ -68,14 +68,8 @@ position: relative;
   z-index: -1;
   width: 100%;
   height: 100%;
-   background: linear-gradient(
-         90deg,
-         rgba(50, 56, 122, 0.9794292717086834) 27%,
-         rgba(57, 54, 105, 1) 65%,
-         rgba(70, 93, 98, 1) 98%
-       );
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-  clip-path: polygon(0 60%, 8% 67%, 14% 72%, 22% 74%, 30% 75%, 39% 72%, 44% 66%, 50% 60%, 55% 54%, 61% 51%, 71% 50%, 79% 51%, 85% 53%, 90% 56%, 97% 58%, 100% 58%, 100% 0%, 0% 0%);
+ 
+ 
   }
 }
 
@@ -101,10 +95,15 @@ div {
 
 
 
-.retroClass_Details {
-  grid-column: col-start / col-end 2;
 
+div.retroClass_Details:last-child {
+  grid-column: col-start / col-end 2;
 }
+
+div.retroClass_Details:nth-of-type(2){
+  grid-column: col-start 2 / col-end 8;
+}
+
 
 .MuiPaper-elevation1 {
   box-shadow: none;
@@ -116,4 +115,18 @@ div {
 contentcard
 .MuiTypography-h5{
   display: flex;
+  justify-content: center;
+}
+
+.retroClass_Details_Right{
+  display: grid;
+  grid-column: col-start / col-end ;
+  grid-template-columns: 1fr 2fr;
+ &:first-child{grid-column: col-start 6/ col-end 7} ;
+
+}
+
+.retroClass {
+  display: grid;  
+  ;
 }

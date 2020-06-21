@@ -3,6 +3,8 @@ import Comment from "./Comment";
 import { Link, Router } from "@reach/router";
 import styled, { isStyledComponent } from "styled-components";
 import Context from "./Context";
+import Moin from "./Content_screen_right";
+
 import Child_leftContent from "./Child_leftContentCard";
 
 const Content_screen_right = (props) => {
@@ -43,7 +45,12 @@ const Content_screen_right = (props) => {
     }
   `;
 
-  return <Child_leftContent data={data} />;
+  return (
+    <React.Fragment>
+      <Child_leftContent data={data} />
+      <Moin />
+    </React.Fragment>
+  );
 };
 
 export default Content_screen_right;

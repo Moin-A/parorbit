@@ -44,7 +44,7 @@ const Header = () => {
   return (
     <Styledheader>
       <span>{page}</span>
-      <div>
+      <div className={"header"}>
         <img src={image[0].profilepicture} alt="profile"></img>
         <span>{image[0].name}</span>
       </div>

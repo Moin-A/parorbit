@@ -4,7 +4,7 @@
 import styled, { isStyledComponent } from "styled-components";
 // import Context from "./Context";
 import Avatar from "./Avatar";
-
+import Divider from "@material-ui/core/Divider";
 // const Content_screen_right = (props) => {
 //   const { page, data } = useContext(Context);
 //   const [image, setimage] = useState([
@@ -100,6 +100,7 @@ const useStyles = makeStyles({
     boxShadow: "none",
     justifyContent: "center",
     borderRight: "1px solid #cccccc",
+    padding: "1rem",
   },
   bullet: {
     display: "inline-block",
@@ -119,6 +120,9 @@ const useStyles = makeStyles({
 
 const Styleddiv = styled.div`
   .MuiTypography-h5 {
+    h2 {
+      padding-bottom: 4rem;
+    }
   }
 `;
 
@@ -129,8 +133,13 @@ export default function SimpleCard(props) {
   const Styleddiv = styled.div`
     display: grid;
     grid-column: "col-start / col-end ";
-    .MuiPaper-elevation1 {
-      box-shadow: none;
+
+    /* .muitypography-root: {
+      padding-bottom: 1 rem;
+    } */
+
+    .MuiDivider-root {
+      margin: 1rem;
     }
   `;
 
@@ -154,23 +163,39 @@ export default function SimpleCard(props) {
             {props.data.name}
           </Typography>
           <Typography variant="h5" component="h2">
-            USerName &#58;
-            <Typography variant="h5" component="h1">
-              {props.data[0].username}
-            </Typography>
+            Uwername &#58; {props.data[0].username}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
+          <Typography variant="h5" component="h2">
+            Email &#58; {props.data[0].email}
           </Typography>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
+          <Typography variant="h5" component="h2">
+            Phone &#58; {props.data[0].phone}
+          </Typography>
+          <Typography variant="h5" component="h2">
+            Website &#58; {props.data[0].website}
+          </Typography>
+
+          <Divider dark />
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            Company
+          </Typography>
+          <Typography variant="h5" component="h2">
+            Uwername &#58; {props.data[0].username}
+          </Typography>
+          <Typography variant="h5" component="h2">
+            Email &#58; {props.data[0].email}
+          </Typography>
+          <Typography variant="h5" component="h2">
+            Phone &#58; {props.data[0].phone}
+          </Typography>
+          <Typography variant="h5" component="h2">
+            Website &#58; {props.data[0].website}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
       </Card>
     </Styleddiv>
   );

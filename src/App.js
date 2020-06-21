@@ -15,13 +15,13 @@ import Content_screen_right from "./Components/Content_screen_right";
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <Router>
         <Homepage path="/" />
         <Details path="profile/:id">
           <Content_screen_left path="/" />
-          <Content_screen_right path="/" />
-          <Post path="post/:id" wrapperProps={{ className: "my-class" }} />
+
+          <Post path="/post/:id" wrapperProps={{ className: "my-class" }} />
         </Details>
       </Router>
     </div>
