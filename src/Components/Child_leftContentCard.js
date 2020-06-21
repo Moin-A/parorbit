@@ -117,6 +117,11 @@ const useStyles = makeStyles({
   },
 });
 
+const Styleddiv = styled.div`
+  .MuiTypography-h5 {
+  }
+`;
+
 export default function SimpleCard(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
@@ -130,38 +135,43 @@ export default function SimpleCard(props) {
   `;
 
   return (
-    <Card className={classes.root}>
-      <Avatar src={props.data[0].profilepicture} />
-      <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          {props.data[0].name}
-        </Typography>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          {props.data.name}
-        </Typography>
-        <Typography variant="h5" component="h2">
-          USerName &#58; {props.data[0].username}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <Styleddiv>
+      <Card className={classes.root}>
+        <Avatar src={props.data[0].profilepicture} />
+        <CardContent>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            {props.data[0].name}
+          </Typography>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            {props.data.name}
+          </Typography>
+          <Typography variant="h5" component="h2">
+            USerName &#58;
+            <Typography variant="h5" component="h1">
+              {props.data[0].username}
+            </Typography>
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            adjective
+          </Typography>
+          <Typography variant="body2" component="p">
+            well meaning and kindly.
+            <br />
+            {'"a benevolent smile"'}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Learn More</Button>
+        </CardActions>
+      </Card>
+    </Styleddiv>
   );
 }
