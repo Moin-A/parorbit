@@ -62,7 +62,7 @@ export default function PermanentDrawerLeft({ data }) {
       >
         <List>
           <React.Fragment>
-            <Link to={`post/${data[0].id}`}>
+            <Link to={`/details`}>
               <ListItem button key={1}>
                 <ListItemText primary={"Profile"}></ListItemText>
               </ListItem>
@@ -70,13 +70,17 @@ export default function PermanentDrawerLeft({ data }) {
 
             <Divider />
 
-            <ListItem button key={2}>
-              <ListItemText primary={"Post"} />
-            </ListItem>
+            <Link to={`post/${data[0].id}`}>
+              <ListItem button key={1}>
+                <ListItemText primary={"Post"}></ListItemText>
+              </ListItem>
+            </Link>
             <Divider />
-            <ListItem button key={3}>
-              <ListItemText primary={"Gallery"} />
-            </ListItem>
+            <Link to={`gallery/`}>
+              <ListItem button key={3}>
+                <ListItemText primary={"Gallery"} />
+              </ListItem>
+            </Link>
             <Divider />
             <ListItem button key={4}>
               <ListItemText primary={"ToDo"} />

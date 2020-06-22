@@ -7,7 +7,7 @@ import Details from "./Components/Details";
 import Post from "./Components/Post";
 import Header from "./Components/Header";
 import Sidebar from "./Components/Sidebar";
-
+import Gallery from "./Components/Gallery";
 import Chatdropup from "./Components/Chatdropup";
 
 import Content_screen_left from "./Components/Content_screen_left";
@@ -20,8 +20,8 @@ const App = () => {
         <Homepage path="/" />
         <Details path="profile/:id">
           <Content_screen_left path="/" />
-
           <Post path="/post/:id" wrapperProps={{ className: "my-class" }} />
+          <Gallery path="/gallery" />
         </Details>
       </Router>
     </div>

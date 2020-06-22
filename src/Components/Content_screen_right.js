@@ -1,5 +1,5 @@
 import styled, { isStyledComponent } from "styled-components";
-
+import { CardMedia } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -7,6 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Maps from "./Maps";
 
 const useStyles = makeStyles({
   root: {
@@ -52,19 +53,39 @@ export default function SimpleCard(props) {
     justify-content: start;
     right: -218%;
     max-width: inherit;
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: none;
+
+    dt {
+      display: block;
+      float: left;
+      width: 100px;
+      text-align: right;
+      color: #9a9a9a;
+    }
+    dt:after {
+      content: ":";
+    }
+    dd {
+      display: block;
+    }
 
     .MuiCardContent-root {
       justify-content: start;
 
-      h2 {
+      h1 {
         color: #9a9a9a;
       }
     }
     .h1combi {
       display: flex;
-      margin: 0 5rem;
+      margin: 0 2rem;
+    }
+    .mapDiv {
+      border-radius: 1rem;
+    }
+
+    .MuiTypography-h5 {
+      margin-right: 3rem;
     }
   `;
 
@@ -72,33 +93,52 @@ export default function SimpleCard(props) {
     <Styleddiv>
       <CardContent>
         <Card className={classes.root}>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="">
             Address :
           </Typography>
           <div className={"h1combi"}>
-            <Typography gutterBottom variant="h5" component="h2">
-              Address :
+            <Typography gutterBottom variant="h5" component="dt">
+              Street&nbsp;
             </Typography>
-            <Typography gutterBottom variant="h5" component="h2">
-              &nbsp;Address
-            </Typography>
-          </div>
-          <div className={"h1combi"}>
-            <Typography gutterBottom variant="h5" component="h2">
-              Address :
-            </Typography>
-            <Typography gutterBottom variant="h5" component="h2">
-              &nbsp;Address
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].address.street}
             </Typography>
           </div>
           <div className={"h1combi"}>
-            <Typography gutterBottom variant="h5" component="h2">
-              Address :
+            <Typography gutterBottom variant="h5" component="dt">
+              Suite&nbsp;
             </Typography>
-            <Typography gutterBottom variant="h5" component="h2">
-              &nbsp;Address
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].address.suite}
             </Typography>
           </div>
+          <div className={"h1combi"}>
+            <Typography gutterBottom variant="h5" component="dt">
+              City&nbsp;
+            </Typography>
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].address.city}
+            </Typography>
+          </div>
+          <div className={"h1combi"}>
+            <Typography gutterBottom variant="h5" component="dt">
+              Zipcode&nbsp;
+            </Typography>
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].address.zipcode}
+            </Typography>
+          </div>
+          <CardMedia children={Maps} elementType={"div"}>
+            <iframe
+              width="440"
+              height="350"
+              frameborder="0"
+              borderradius="2rem"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCVPPbQ4dJ2Tuoj1eR2ryNGv8YPukR-VRA
+    &q=Space+Needle,Seattle+WA"
+              allowfullscreen
+            ></iframe>
+          </CardMedia>
         </Card>
       </CardContent>
     </Styleddiv>

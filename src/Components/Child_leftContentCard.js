@@ -141,6 +141,33 @@ export default function SimpleCard(props) {
     .MuiDivider-root {
       margin: 1rem;
     }
+    dt {
+      display: block;
+      float: left;
+      width: 100px;
+      text-align: right;
+      color: #9a9a9a;
+    }
+    dt:after {
+      content: ":";
+    }
+    dd {
+      display: block;
+    }
+
+    .MuiCardContent-root {
+      justify-content: start;
+
+      h1 {
+        color: #9a9a9a;
+      }
+    }
+    .h1combi {
+      display: flex;
+    }
+    .mapDiv {
+      border-radius: 1rem;
+    }
   `;
 
   return (
@@ -155,25 +182,40 @@ export default function SimpleCard(props) {
           >
             {props.data[0].name}
           </Typography>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            {props.data.name}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            Uwername &#58; {props.data[0].username}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            Email &#58; {props.data[0].email}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            Phone &#58; {props.data[0].phone}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            Website &#58; {props.data[0].website}
-          </Typography>
+
+          <div className={"h1combi"}>
+            <Typography gutterBottom variant="h5" component="dt">
+              Usernamet&nbsp;
+            </Typography>
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].username}
+            </Typography>
+          </div>
+
+          <div className={"h1combi"}>
+            <Typography gutterBottom variant="h5" component="dt">
+              Email&nbsp;
+            </Typography>
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].email}
+            </Typography>
+          </div>
+          <div className={"h1combi"}>
+            <Typography gutterBottom variant="h5" component="dt">
+              Phone&nbsp;
+            </Typography>
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].phone}
+            </Typography>
+          </div>
+          <div className={"h1combi"}>
+            <Typography gutterBottom variant="h5" component="dt">
+              Website&nbsp;
+            </Typography>
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].website}
+            </Typography>
+          </div>
 
           <Divider dark />
           <Typography
@@ -183,18 +225,30 @@ export default function SimpleCard(props) {
           >
             Company
           </Typography>
-          <Typography variant="h5" component="h2">
-            Uwername &#58; {props.data[0].username}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            Email &#58; {props.data[0].email}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            Phone &#58; {props.data[0].phone}
-          </Typography>
-          <Typography variant="h5" component="h2">
-            Website &#58; {props.data[0].website}
-          </Typography>
+          <div className={"h1combi"}>
+            <Typography gutterBottom variant="h5" component="dt">
+              Name&nbsp;
+            </Typography>
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].name}
+            </Typography>
+          </div>
+          <div className={"h1combi"}>
+            <Typography gutterBottom variant="h5" component="dt">
+              Catchphrase&nbsp;
+            </Typography>
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].company.catchPhrase}
+            </Typography>
+          </div>
+          <div className={"h1combi"}>
+            <Typography gutterBottom variant="h5" component="dt">
+              bs&nbsp;
+            </Typography>
+            <Typography gutterBottom variant="h5" component="dd">
+              &nbsp;{props.data[0].company.bs}
+            </Typography>
+          </div>
         </CardContent>
       </Card>
     </Styleddiv>

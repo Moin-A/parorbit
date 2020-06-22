@@ -48,7 +48,7 @@ const Content_screen_right = (props) => {
   return (
     <React.Fragment>
       <Child_leftContent data={data} />
-      <Moin />
+      <Moin data={data} />
     </React.Fragment>
   );
 };

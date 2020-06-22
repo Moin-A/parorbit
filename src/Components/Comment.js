@@ -17,7 +17,9 @@ import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import styled, { isStyledComponent } from "styled-components";
-
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -29,6 +31,12 @@ const useStyles = makeStyles((theme: Theme) =>
       borderRadius: "2rem ",
       fontSize: "4rem",
       paddingBlock: "2rem",
+      width: "100%",
+      maxWidth: "36ch",
+      backgroundColor: theme.palette.background.paper,
+    },
+    inline: {
+      display: "inline",
     },
     media: {
       height: 0,
@@ -52,9 +60,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function RecipeReviewCard(props) {
+export default function RecipeReviewCard({
+  postdata,
+  comment = { profilePicture: "xyz", body: "xyz" },
+}) {
   const { page, data, image } = useContext(Context);
-  const [id] = useState(props.id);
+
   const [Data, setdata] = useState([
     {
       profilepicture: "https://panorb",
@@ -80,13 +91,16 @@ export default function RecipeReviewCard(props) {
     .MuiTypography-body2 {
       font-size: 1.59rem;
     }
+    .MuiTypography-h6 {
+      display: none;
+    }
   `;
 
   useEffect(() => {
     const elements = document.querySelectorAll("div:not([class]):not([id])");
     Array.from(elements, (item) => item.classList.add("retroClass"));
   }, []);
-
+  debugger;
   return (
     <Styleddiv>
       <Card className={classes.root}>
@@ -94,17 +108,17 @@ export default function RecipeReviewCard(props) {
           avatar={<Avatar alt="Remy Sharp" src={image[0].profilepicture} />}
           action={<IconButton aria-label="settings"></IconButton>}
           title={image[0].name}
-          subheader={props.data.time}
+          subheader={postdata.time}
         />
         <CardMedia
           className={classes.media}
-          image={props.data.image}
+          image={postdata.image}
           title="Paella dish"
           classes="media_img"
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {props.data.body}
+            {postdata.body}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -121,33 +135,45 @@ export default function RecipeReviewCard(props) {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Method:</Typography>
-            <Typography paragraph>
-              Heat 1/2 cup of the broth in a pot until simmering, add saffron
-              and set aside for 10 minutes.
-            </Typography>
-            <Typography paragraph>
-              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet
-              over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-              stirring occasionally until lightly browned, 6 to 8 minutes.
-              Transfer shrimp to a large plate and set aside, leaving chicken
-              and chorizo in the pan. Add pimentón, bay leaves, garlic,
-              tomatoes, onion, salt and pepper, and cook, stirring often until
-              thickened and fragrant, about 10 minutes. Add saffron broth and
-              remaining 4 1/2 cups chicken broth; bring to a boil.
-            </Typography>
-            <Typography paragraph>
-              Add rice and stir very gently to distribute. Top with artichokes
-              and peppers, and cook without stirring, until most of the liquid
-              is absorbed, 15 to 18 minutes. Reduce heat to medium-low, add
-              reserved shrimp and mussels, tucking them down into the rice, and
-              cook again without stirring, until mussels have opened and rice is
-              just tender, 5 to 7 minutes more. (Discard any mussels that don’t
-              open.)
-            </Typography>
-            <Typography>
-              Set aside off of the heat to let rest for 10 minutes, and then
-              serve.
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar src={comment.profilePicture} />
+              </ListItemAvatar>
+              <ListItemText
+                secondary={
+                  <Typography
+                    variant="caption"
+                    color="textSecondary"
+                    display="inline"
+                    gutterBottom={true}
+                  >
+                    {image[0].email}
+                  </Typography>
+                }
+                primary={
+                  <React.Fragment>
+                    <Typography
+                      variant="button"
+                      display="inline-block"
+                      gutterBottom={false}
+                    >
+                      {image[0].name}
+                    </Typography>
+
+                    <Typography
+                      variant="caption"
+                      color="textSecondary"
+                      display="inline"
+                      gutterBottom={false}
+                    >
+                      &nbsp;&nbsp; {comment.time}
+                    </Typography>
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+            <Typography gutterBottom variant="h5" component="h6">
+              {comment.body}
             </Typography>
           </CardContent>
         </Collapse>

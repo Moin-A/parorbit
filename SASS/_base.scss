@@ -128,5 +128,20 @@ contentcard
 
 .retroClass {
   display: grid;  
-  ;
+  
+}
+
+div.MuiListItemText-multiline {
+  display: grid;
+}
+
+.MuiCardContent-root:last-child {
+
+  h6{
+    margin-left: 7rem;
+    font-size: 1.2rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    line-height: 1.334;
+  }
 }

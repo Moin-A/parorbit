@@ -9,16 +9,13 @@ import Child_Sidebar from "./Child_Sidebar";
 const Sidebar = () => {
   const { data, page } = useContext(Context);
   const Styleddiv = styled.div`
-    /* display: flex;
+    display: flex;
     max-height: 70%;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     margin: 2rem 1rem;
-    border-radius: 4rem; */
-    /* background-color: red; */
-    grid-column: sidebar-start / sidebar-end;
-    grid-row: 1 / -1;
+    border-radius: 4rem;
 
     .MuiList-root {
       margin: auto 3rem;
@@ -73,19 +70,6 @@ const Sidebar = () => {
   `;
   return (
     <Styleddiv>
-      {/* <label checked="true">
-        <Link to={`post/${data[0].id}`}>Post</Link>
-      </label>
-      <label>
-        <NavLink to="#">Profile</NavLink>
-      </label>
-      <label>
-        <NavLink to="#">Profile</NavLink>
-      </label>
-      <label>
-        <NavLink to="#">Profile</NavLink>
-      </label> */}
-
       <Child_Sidebar data={data} />
     </Styleddiv>
   );

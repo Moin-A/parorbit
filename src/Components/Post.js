@@ -15,6 +15,13 @@ const Post = (props) => {
 
   const [page, setpage] = useState("Profile");
   const [image, setimage] = useState("Profile");
+  const [comment, setcomment] = useState([
+    {
+      profilePicture: "https://panorb",
+      company: { name: "xyz" },
+      address: { street: "xyz" },
+    },
+  ]);
 
   useEffect(() => {
     fetch("https://panorbit.in/api/posts.json")
@@ -34,6 +41,13 @@ const Post = (props) => {
       .catch((error) => console.log(error.message));
   }, []);
 
+  useEffect(() => {
+    fetch("https://panorbit.in/api/comments.json")
+      .then((response) => response.json())
+      .then((data) => setcomment(Object.values(data)))
+      .catch((error) => console.log(error.message));
+  }, []);
+
   const Styleddiv = styled.div`
     background-color: blue;
     display: grid;
@@ -48,7 +62,10 @@ const Post = (props) => {
   return (
     <Context.Provider value={{ page, data, image }}>
       {Object.values(data).map((item) => (
-        <Comment data={item} />
+        <Comment
+          postdata={item}
+          comment={Object.values(comment)[0][item.id - 1]}
+        />
       ))}
     </Context.Provider>
   );
