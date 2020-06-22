@@ -62,7 +62,7 @@ export default function PermanentDrawerLeft({ data }) {
       >
         <List>
           <React.Fragment>
-            <Link to={`/details`}>
+            <Link to={`/profile/${Object.values(data)[0].name}`}>
               <ListItem button key={1}>
                 <ListItemText primary={"Profile"}></ListItemText>
               </ListItem>
