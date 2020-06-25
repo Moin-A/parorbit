@@ -29,7 +29,13 @@ const theme = createMuiTheme({
           background: "#5980b01f",
           margin: "2rem 2rem",
         },
+        typography: {
+          // In Chinese and Japanese the characters are usually larger,
+          // so a smaller fontsize may be appropriate.
+          fontSize: 16,
+        },
         html: {},
+
         "*::-webkit-scrollbar-track": {
           boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
           margin: "1rem",

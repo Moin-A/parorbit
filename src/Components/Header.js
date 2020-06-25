@@ -23,7 +23,7 @@ const Header = () => {
     border-bottom: 1px solid #cccccc;
     justify-content: space-between;
     align-items: center;
-
+    font-size: "1.7rem";
     flex-grow: 1;
     span {
       box-sizing: border-box;
@@ -43,10 +43,10 @@ const Header = () => {
 
   return (
     <Styledheader>
-      <span>{page}</span>
+      <span style={{ fontSize: "1.5rem" }}>{page}</span>
       <div className={"header"}>
         <img src={image[0].profilepicture} alt="profile"></img>
-        <span>{image[0].name}</span>
+        <span style={{ fontSize: "1.5rem" }}>{image[0].name}</span>
       </div>
     </Styledheader>
   );

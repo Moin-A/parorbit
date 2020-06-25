@@ -40,6 +40,10 @@ const Details = (props) => {
       .catch((error) => console.log(error.message));
   }, []);
 
+  useEffect(() => {
+    setpage(props.location.pathname);
+  }, [props.location.href]);
+
   return (
     <Context.Provider value={{ page, data, props }}>
       <Styleddiv>

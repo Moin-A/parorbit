@@ -126,7 +126,7 @@ contentcard
 
 }
 
-
+  
 
 div.MuiListItemText-multiline {
   display: grid;
@@ -141,4 +141,11 @@ div.MuiListItemText-multiline {
     font-weight: 300;
     line-height: 1.334;
   }
+}
+
+
+//Typography
+
+.MuiTypography-body1 {
+  font-size: 1.3rem;
 }

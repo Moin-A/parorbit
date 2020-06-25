@@ -60,7 +60,7 @@ const Post = (props) => {
   `;
 
   return (
-    <Context.Provider value={{ page, data, image }}>
+    <Context.Provider value={{ page, data, image, id: props.id }}>
       <div className="div">
         {Object.values(data).map((item) => (
           <Comment

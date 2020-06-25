@@ -84,3 +84,6 @@ div.MuiListItemText-multiline {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 300;
   line-height: 1.334; }
+
+.MuiTypography-body1 {
+  font-size: 1.3rem; }
