@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme: Theme) =>
       borderRadius: "2rem ",
       fontSize: "4rem",
       paddingBlock: "2rem",
-      width: "100%",
-      maxWidth: "36ch",
+      width: "12rem",
+      minWidth: "20ch",
       backgroundColor: theme.palette.background.paper,
     },
     inline: {
@@ -100,7 +100,7 @@ export default function RecipeReviewCard({
     const elements = document.querySelectorAll("div:not([class]):not([id])");
     Array.from(elements, (item) => item.classList.add("retroClass"));
   }, []);
-  debugger;
+
   return (
     <Styleddiv>
       <Card className={classes.root}>

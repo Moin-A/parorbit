@@ -1,12 +1,14 @@
 import React, { Component, useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import styled, { isStyledComponent } from "styled-components";
+
 import Chatdropup from "./Chatdropup";
 import Header from "./Header";
 import Content_screen_left from "./Content_screen_left";
 import Content_screen_right from "./Content_screen_right";
 import Context from "./Context";
 import { Link, Router } from "@reach/router";
+import Activities from "./Activities";
 const Details = (props) => {
   const [data, setdata] = useState([
     {
@@ -37,13 +39,15 @@ const Details = (props) => {
       )
       .catch((error) => console.log(error.message));
   }, []);
-  debugger;
+
   return (
     <Context.Provider value={{ page, data, props }}>
       <Styleddiv>
         <Header />
         <Sidebar />
+
         <Chatdropup />
+
         {props.children}
       </Styleddiv>
     </Context.Provider>

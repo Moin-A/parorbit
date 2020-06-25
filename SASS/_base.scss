@@ -84,8 +84,8 @@ div {
 }
 
 .retroClass {
-  grid-column: col-start / col-end 4;
-
+  display:flex;
+  grid-column: center-start/center-end;
 }
 
 
@@ -126,10 +126,7 @@ contentcard
 
 }
 
-.retroClass {
-  display: grid;  
-  
-}
+
 
 div.MuiListItemText-multiline {
   display: grid;

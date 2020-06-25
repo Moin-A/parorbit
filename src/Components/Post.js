@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-
+import Activities from "./Activities";
 import styled, { isStyledComponent } from "styled-components";
 import Comment from "./Comment";
 import Context from "./Context";
@@ -50,8 +50,8 @@ const Post = (props) => {
 
   const Styleddiv = styled.div`
     background-color: blue;
-    display: grid;
-    grid-template-rows: 13vh min-content 10vh;
+    /* display: grid;
+    grid-template-rows: 13vh min-content 10vh; */
     grid-gap: 2rem;
     grid-template-columns:
       [sidebar-start] 25rem [sidebar-end full-start] minmax(6rem, 1fr)
@@ -61,12 +61,18 @@ const Post = (props) => {
 
   return (
     <Context.Provider value={{ page, data, image }}>
-      {Object.values(data).map((item) => (
-        <Comment
-          postdata={item}
-          comment={Object.values(comment)[0][item.id - 1]}
-        />
-      ))}
+      <div className="div">
+        {Object.values(data).map((item) => (
+          <Comment
+            className="comment"
+            postdata={item}
+            comment={Object.values(comment)[0][item.id - 1]}
+          />
+        ))}
+      </div>
+      <div>
+        <Activities />
+      </div>
     </Context.Provider>
   );
 };

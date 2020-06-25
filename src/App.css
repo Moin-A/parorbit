@@ -48,7 +48,8 @@ body {
   height: 30%; }
 
 .retroClass {
-  grid-column: col-start / col-end 4; }
+  display: flex;
+  grid-column: center-start/center-end; }
 
 .makeStyles-media-2 {
   height: 0; }
@@ -73,9 +74,6 @@ contentcard
   grid-template-columns: 1fr 2fr; }
   .retroClass_Details_Right:first-child {
     grid-column: col-start 6/ col-end 7; }
-
-.retroClass {
-  display: grid; }
 
 div.MuiListItemText-multiline {
   display: grid; }
