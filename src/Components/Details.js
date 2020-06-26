@@ -26,8 +26,8 @@ const Details = (props) => {
     grid-gap: 2rem;
     position: relative;
     grid-template-columns:
-      [sidebar-start] 25rem [sidebar-end full-start] minmax(6rem, 1fr)
-      [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+      [sidebar-start] 22rem [sidebar-end full-start] minmax(6rem, 1fr)
+      [center-start] repeat(8, [col-start] minmax(min-content, 19rem) [col-end])
       [center-end] minmax(6rem, 1fr) [full-end];
   `;
 
@@ -38,6 +38,11 @@ const Details = (props) => {
         setdata(Object.values(data.users).filter((x) => x.name == props.id))
       )
       .catch((error) => console.log(error.message));
+  }, []);
+
+  useEffect(() => {
+    const elements = document.querySelectorAll("div:not([class]):not([id])");
+    Array.from(elements, (item) => item.classList.add("retroClass"));
   }, []);
 
   useEffect(() => {

@@ -23,7 +23,6 @@ const theme = createMuiTheme({
       "@global": {
         "*::-webkit-scrollbar": {
           width: "0.4em",
-
           left: "-100px",
           Color: "",
           background: "#5980b01f",
@@ -35,6 +34,10 @@ const theme = createMuiTheme({
           fontSize: 16,
         },
         html: {},
+        body: {
+          position: "fixed",
+          width: "100%",
+        },
 
         "*::-webkit-scrollbar-track": {
           boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
