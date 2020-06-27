@@ -56,7 +56,9 @@ position: relative;
   grid-column: center-start/center-end;
   display: grid;
 }
-
+.col-md-4{
+  max-width: 10%;
+}
 
 
   &:after {
@@ -86,6 +88,7 @@ div {
 .retroClass {
   display:flex;
   grid-column: center-start/center-end;
+  justify-content: "center";
 }
 
 
@@ -122,6 +125,8 @@ contentcard
   display: grid;
   grid-column: col-start / col-end ;
   grid-template-columns: 1fr 2fr;
+
+
  &:first-child{grid-column: col-start 6/ col-end 7} ;
 
 }
@@ -148,4 +153,9 @@ div.MuiListItemText-multiline {
 
 .MuiTypography-body1 {
   font-size: 1.3rem;
+}
+
+
+.retroClas-flex {
+
 }

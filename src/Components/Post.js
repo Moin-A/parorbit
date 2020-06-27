@@ -61,7 +61,7 @@ const Post = (props) => {
 
   return (
     <Context.Provider value={{ page, data, image, id: props.id }}>
-      <div className="div">
+      <div className="div" style={{ overflow: "auto" }}>
         {Object.values(data).map((item) => (
           <Comment
             className="comment"

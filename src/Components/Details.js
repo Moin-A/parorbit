@@ -10,23 +10,6 @@ import Context from "./Context";
 import { Link, Router } from "@reach/router";
 import Activities from "./Activities";
 
-// const useStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     root: {
-//       flexGrow: 1,
-//       display: "grid",
-//       gridColumn: "center-start/center-end",
-//     },
-//     paper: {
-//       height: 140,
-//       width: 100,
-//     },
-//     control: {
-//       padding: theme.spacing(2),
-//     },
-//   })
-// );
-
 const Details = (props) => {
   const [data, setdata] = useState([
     {
@@ -47,6 +30,14 @@ const Details = (props) => {
       [sidebar-start] 22rem [sidebar-end full-start] minmax(6rem, 1fr)
       [center-start] repeat(8, [col-start] minmax(min-content, 19rem) [col-end])
       [center-end] minmax(6rem, 1fr) [full-end];
+    .col-md-4 {
+      max-width: 100%;
+      border-radius: 10%;
+      margin: 0;
+      padding: 0;
+      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    }
   `;
 
   useEffect(() => {

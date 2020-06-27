@@ -34,6 +34,8 @@ body {
     position: sticky;
     grid-column: center-start/center-end;
     display: grid; }
+  .container .col-md-4 {
+    max-width: 10%; }
   .container:after {
     content: '';
     display: block;
@@ -49,7 +51,8 @@ body {
 
 .retroClass {
   display: flex;
-  grid-column: center-start/center-end; }
+  grid-column: center-start/center-end;
+  justify-content: "center"; }
 
 .makeStyles-media-2 {
   height: 0; }

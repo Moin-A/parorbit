@@ -14,6 +14,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Chatdropup from "./Components/Chatdropup";
 import Album from "./Components/Album";
+import ToDo from "./Components/Todo";
 
 import Content_screen_left from "./Components/Content_screen_left";
 import Content_screen_right from "./Components/Content_screen_right";
@@ -74,7 +75,8 @@ const App = () => {
             <Album path="/Album/:id" />
 
             <Gallery path="/gallery" />
-            <Post path="/post/:id" w />
+            <Post path="/post/:id" />
+            <ToDo path="/todo/:id" />
           </Details>
         </Router>
       </div>
