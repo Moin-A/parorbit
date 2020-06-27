@@ -9,6 +9,24 @@ import Content_screen_right from "./Content_screen_right";
 import Context from "./Context";
 import { Link, Router } from "@reach/router";
 import Activities from "./Activities";
+
+// const useStyles = makeStyles((theme: Theme) =>
+//   createStyles({
+//     root: {
+//       flexGrow: 1,
+//       display: "grid",
+//       gridColumn: "center-start/center-end",
+//     },
+//     paper: {
+//       height: 140,
+//       width: 100,
+//     },
+//     control: {
+//       padding: theme.spacing(2),
+//     },
+//   })
+// );
+
 const Details = (props) => {
   const [data, setdata] = useState([
     {

@@ -13,6 +13,7 @@ import Gallery from "./Components/Gallery";
 import { createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Chatdropup from "./Components/Chatdropup";
+import Album from "./Components/Album";
 
 import Content_screen_left from "./Components/Content_screen_left";
 import Content_screen_right from "./Components/Content_screen_right";
@@ -70,8 +71,10 @@ const App = () => {
             <Content_screen_left path="/" />
 
             <Post path="/post/:id" wrapperProps={{ className: "my-class" }} />
+            <Album path="/Album/:id" />
 
             <Gallery path="/gallery" />
+            <Post path="/post/:id" w />
           </Details>
         </Router>
       </div>
