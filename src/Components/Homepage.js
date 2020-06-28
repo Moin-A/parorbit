@@ -90,7 +90,7 @@ span {
           {Object.values(users).map((item) => (
             <Link to={`profile/${item.name}`}>
               <img src={item.profilepicture} alt="Girl in a jacket"></img>
-              <span>{item.name}</span>
+              <span style={{ fontSize: "2rem" }}>{item.name}</span>
             </Link>
           ))}
         </div>
