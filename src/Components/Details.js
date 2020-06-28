@@ -53,7 +53,7 @@ const Details = (props) => {
     const elements = document.querySelectorAll("div:not([class]):not([id])");
     Array.from(elements, (item) => item.classList.add("retroClass"));
   }, []);
-  debugger;
+
   useEffect(() => {
     setpage(
       props["*"] === "" ? "PROFILE" : props["*"].toUpperCase().split("/")[0]

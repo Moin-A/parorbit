@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export const useInputValue = (initialValue = "") => {
-  const [inputValue, setInputValue] = useState(initialValue);
-
+export const useInputValue = (props) => {
+  const [inputValue, setInputValue] = useState(props.initialValue);
+  debugger;
   return {
     inputValue,
     changeInput: (event) => setInputValue(event.target.value),

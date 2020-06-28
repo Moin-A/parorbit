@@ -9,9 +9,11 @@ import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 
 const TodoApp = memo((props) => {
-  const { inputValue, changeInput, clearInput, keyInput } = useInputValue();
+  const [initialValue, setdata] = useState([]);
+  const { inputValue, changeInput, clearInput, keyInput } = useInputValue(
+    initialValue
+  );
   const { todos, addTodo, checkTodo, removeTodo } = useTodos();
-  const [Data, setdata] = useState([]);
 
   const clearInputAndAddTodo = (_) => {
     clearInput();
@@ -47,7 +49,13 @@ const TodoApp = memo((props) => {
           onItemRemove={(idx) => removeTodo(idx)}
         />
       </Layout>
-      <Layout></Layout>
+      <Layout>
+        <TodoList
+          items={todos}
+          onItemCheck={(idx) => checkTodo(idx)}
+          onItemRemove={(idx) => removeTodo(idx)}
+        />
+      </Layout>
     </React.Fragment>
   );
 });

@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme: Theme) =>
 const Album = (props) => {
   const [data, setdata] = useState([]);
   const classes = useStyles();
-  debugger;
 
   useEffect(() => {
     const elements = document.querySelectorAll("div:not([class]):not([id])");

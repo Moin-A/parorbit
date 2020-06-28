@@ -1,24 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import styled, { isStyledComponent } from "styled-components";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import { Link } from "@reach/router";
 
-const chatdropup = () => {
+const Chatdropup = () => {
+  const [data, setdata] = useState([]);
+
+  useEffect(() => {
+    fetch("https://panorbit.in/api/users.json")
+      .then((response) => response.json())
+      .then((data) => setdata(Object.values(data.users)))
+      .catch((error) => console.log(error.message));
+  }, []);
+
   const Styleddiv = styled.div`
     position: fixed;
     bottom: 0rem;
     right: 30rem;
+    z-index: 120;
+    background: "red";
     button:focus ul {
+      background: blue;
+      color: white;
       visibility: visible; /* shows sub-menu */
       opacity: 1;
-      z-index: 1;
-      transform: translateY(-120%);
+      z-index: 9;
+      transform: translateY(-119%);
       transition-delay: 0s, 0s, 0.3s;
     }
   `;
   const Ul = styled.ul`
     position: absolute;
-    top: 100%;
+    top: 60%;
     left: 0;
     width: 100%;
     transform: translateY(-2em);
@@ -43,10 +57,12 @@ const chatdropup = () => {
     position: relative;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-    width: 24rem;
+    width: 23rem;
     color: inherit;
     border: none;
     padding: 0;
+    height: 3rem;
+    background: #2c65c8;
     font: inherit;
 
     & :active {
@@ -63,23 +79,27 @@ const chatdropup = () => {
       <Parentli>
         <span>Chats</span>
         <Ul>
-          <span>Chats</span>
-          <li>
-            <a href="#">Sub Item 1</a>
-          </li>
-          <li>
-            <a href="#">Sub Item 2</a>
-          </li>
-          <li>
-            <a href="#">Sub Item 3</a>
-          </li>
-          <li>
-            <a href="#">Sub Item 4</a>
-          </li>
+          <span
+            style={{
+              color: "gray",
+              fontSize: "1.7rem",
+              textAlign: "center",
+            }}
+          >
+            Chats
+          </span>
+          {data.map((item) => (
+            <li>
+              <div>{item.name}</div>
+            </li>
+          ))}
         </Ul>
       </Parentli>
+      <KeyboardArrowUpIcon
+        style={{ position: "absolute", right: "6px", top: "8px" }}
+      />
     </Styleddiv>
   );
 };
 
-export default chatdropup;
+export default Chatdropup;

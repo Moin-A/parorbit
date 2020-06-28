@@ -25,9 +25,7 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
   const classes = useStyles();
 
-  const handleExpandClick = (e) => {
-    debugger;
-  };
+  const handleExpandClick = (e) => {};
 
   return (
     <a size="small" color="primary" href={props.data.url}>

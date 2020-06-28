@@ -41,7 +41,7 @@ export default function SpacingGrid() {
       .then((data) => setgalleryData(data.album))
       .catch((error) => console.log(error.message));
   }, []);
-  debugger;
+
   return (
     <div className="parentdiv">
       <Grid
