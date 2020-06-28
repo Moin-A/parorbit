@@ -1,33 +1,26 @@
-import React, { Component, useState, useEffect, useContext } from "react";
-import TodoItem from "./TodoItem";
-import Context from "./Context";
-import Checkbox from "./Checkbox";
-const TodoList = (props) => {
-  const context1 = useContext(Context);
-  const [Data, setdata] = useState([1]);
-  useEffect(() => {
-    fetch("https://panorbit.in/api/todo.json")
-      .then((response) => response.json())
-      .then((data) =>
-        setdata(Object.values(data.todo).filter((x) => x.userId === props.id))
-      )
-      .catch((error) => console.log(error.message));
-  }, []);
+import React, { memo } from "react";
+import { List, Paper, Grid } from "@material-ui/core";
 
-  return (
-    <div>
-      <Checkbox Data={Data} />
-      {props.items.map((item) => (
-        <TodoItem
-          id={item.id}
-          status={item.status}
-          task={item.task}
-          deleteItem={props.deleteItem}
-          markItemComplete={props.markItemComplete}
-        />
-      ))}
-    </div>
-  );
-};
+import TodoListItem from "./TodoItem";
+
+const TodoList = memo((props) => (
+  <>
+    {props.items.length > 0 && (
+      <Paper style={{ margin: 16 }}>
+        <List style={{ overflow: "scroll" }}>
+          {props.items.map((todo, idx) => (
+            <TodoListItem
+              {...todo}
+              key={`TodoItem.${idx}`}
+              divider={idx !== props.items.length - 1}
+              onButtonClick={() => props.onItemRemove(idx)}
+              onCheckBoxToggle={() => props.onItemCheck(idx)}
+            />
+          ))}
+        </List>
+      </Paper>
+    )}
+  </>
+));
 
 export default TodoList;

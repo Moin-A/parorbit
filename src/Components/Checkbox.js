@@ -48,7 +48,7 @@ export default function CheckboxList(props) {
 
   return (
     <List className={classes.root}>
-      {[0, 1, 2, 3].map((value) => {
+      {Data.map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 
         return (
@@ -62,14 +62,14 @@ export default function CheckboxList(props) {
             <ListItemIcon>
               <Checkbox
                 edge="start"
-                checked={checked.indexOf(value) !== -1}
+                checked={checked.indexOf(value.id) !== -1}
                 tabIndex={-1}
                 disableRipple
                 color="default"
                 inputProps={{ "aria-label": "checkbox with default color" }}
               />
             </ListItemIcon>
-            <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+            <ListItemText id={labelId} primary={`Line item ${value.id + 1}`} />
             <ListItemSecondaryAction></ListItemSecondaryAction>
           </ListItem>
         );

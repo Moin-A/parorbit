@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme: Theme) =>
       maxHeight: "12rem",
       alignItems: "center",
       alignItems: "center",
+      listStyle: "none",
+      textDecoration: "none",
     },
     appBar: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -62,7 +64,10 @@ export default function PermanentDrawerLeft({ data }) {
       >
         <List>
           <React.Fragment>
-            <Link to={`/profile/${Object.values(data)[0].name}`}>
+            <Link
+              to={`/profile/${Object.values(data)[0].name}`}
+              style={{ textDecoration: "none" }}
+            >
               <ListItem button key={1}>
                 <ListItemText primary={"Profile"}></ListItemText>
               </ListItem>
@@ -70,19 +75,19 @@ export default function PermanentDrawerLeft({ data }) {
 
             <Divider />
 
-            <Link to={`post/${data[0].id}`}>
+            <Link to={`post/${data[0].id}`} style={{ textDecoration: "none" }}>
               <ListItem button key={1}>
                 <ListItemText primary={"Post"}></ListItemText>
               </ListItem>
             </Link>
             <Divider />
-            <Link to={`gallery/`}>
+            <Link to={`gallery/`} style={{ textDecoration: "none" }}>
               <ListItem button key={3}>
                 <ListItemText primary={"Gallery"} />
               </ListItem>
             </Link>
             <Divider />
-            <Link to={`todo/${data[0].id}`}>
+            <Link to={`todo/${data[0].id}`} style={{ textDecoration: "none" }}>
               <ListItem button key={4}>
                 <ListItemText primary={"ToDo"} />
               </ListItem>
