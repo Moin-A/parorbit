@@ -53,9 +53,11 @@ const Details = (props) => {
     const elements = document.querySelectorAll("div:not([class]):not([id])");
     Array.from(elements, (item) => item.classList.add("retroClass"));
   }, []);
-
+  debugger;
   useEffect(() => {
-    setpage(props.location.pathname);
+    setpage(
+      props["*"] === "" ? "PROFILE" : props["*"].toUpperCase().split("/")[0]
+    );
   }, [props.location.href]);
 
   return (
