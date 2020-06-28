@@ -109,6 +109,12 @@ class Todo extends Component {
                 Lizard
               </CardHeader>
 
+              <TodoList
+                items={this.state.items}
+                deleteItem={this.handleDeleteItem}
+                markItemComplete={this.handleMarkItemComplete}
+                id={+this.props.id}
+              ></TodoList>
               <input
                 style={input_style}
                 placeHolder="Add New Todo"
@@ -122,14 +128,8 @@ class Todo extends Component {
                 className="btn btn-primary btn-md"
                 onClick={this.handleAddItem}
               >
-                Add
+                AddAdd
               </button>
-              <TodoList
-                items={this.state.items}
-                deleteItem={this.handleDeleteItem}
-                markItemComplete={this.handleMarkItemComplete}
-                id={+this.props.id}
-              />
             </Card>
           </div>
 

@@ -90,3 +90,6 @@ div.MuiListItemText-multiline {
 
 .MuiTypography-body1 {
   font-size: 1.3rem; }
+
+.retroClas-flex {
+  justify-content: center; }
