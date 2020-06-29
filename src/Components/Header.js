@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
       color: "black",
-      marginTop: "2rem",
+
       fontSize: "2rem",
       fontWeight: "600",
     },
@@ -53,8 +53,17 @@ export default function MenuAppBar() {
             <div>
               <Avatar
                 src={data[0].profilepicture}
-                style={{ marginTop: "2rem" }}
+                style={{ marginTop: "1rem", width: "6rem", height: "6rem" }}
               />
+              <span
+                style={{
+                  color: "black",
+                  fontSize: "2rem",
+                  margin: "auto 2rem",
+                }}
+              >
+                {data[0].name}
+              </span>
             </div>
           )}
         </Toolbar>
