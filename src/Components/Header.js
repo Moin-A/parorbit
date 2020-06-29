@@ -50,10 +50,10 @@ export default function MenuAppBar() {
             {page}
           </Typography>
           {auth && (
-            <div>
+            <div style={{ display: "flex" }}>
               <Avatar
                 src={data[0].profilepicture}
-                style={{ marginTop: "1rem", width: "6rem", height: "6rem" }}
+                style={{ marginTop: "1rem", width: "5rem", height: "5rem" }}
               />
               <span
                 style={{
